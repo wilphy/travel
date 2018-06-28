@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './assets/styles/iconfont.css'
 import './assets/styles/reset.css'
 
 // 解决移动端 1px border的显示问题
