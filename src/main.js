@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import './assets/styles/iconfont.css'
 import './assets/styles/reset.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 // 解决移动端 1px border的显示问题
 import './assets/styles/border.css'
@@ -15,6 +17,7 @@ import fastClick from 'fastclick'
 Vue.config.productionTip = false
 
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({
