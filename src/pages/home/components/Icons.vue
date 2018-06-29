@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div
         class="icon"
@@ -20,55 +20,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: '../../../../static/imgs/手柄.png',
-        desc: '阿斯顿发过火户籍科'
-      }, {
-        id: '0002',
-        imgUrl: '../../../../static/imgs/头戴式耳机.png',
-        desc: 'aaa'
-      }, {
-        id: '0003',
-        imgUrl: '../../../../static/imgs/摇杆.png',
-        desc: 'aaa'
-      }, {
-        id: '0004',
-        imgUrl: '../../../../static/imgs/毽子.png',
-        desc: 'aaa'
-      }, {
-        id: '0005',
-        imgUrl: '../../../../static/imgs/气球.png',
-        desc: 'aaa'
-      }, {
-        id: '0006',
-        imgUrl: '../../../../static/imgs/话筒.png',
-        desc: 'aaa'
-      }, {
-        id: '0007',
-        imgUrl: '../../../../static/imgs/风筝.png',
-        desc: 'aaa'
-      }, {
-        id: '0008',
-        imgUrl: '../../../../static/imgs/风车.png',
-        desc: 'aaa'
-      }, {
-        id: '0009',
-        imgUrl: '../../../../static/imgs/飞镖.png',
-        desc: 'aaa'
-      }, {
-        id: '0010',
-        imgUrl: '../../../../static/imgs/魔方.png',
-        desc: 'aaa'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

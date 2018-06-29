@@ -8,7 +8,7 @@
       请输入你要搜索的内容
       </div>
     <div class="header-right">
-      城市
+      {{ this.city }}
       <span class="iconfont icon-arraw">&#xe63f;</span>
       </div>
   </div>
@@ -16,7 +16,10 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 
