@@ -7,10 +7,12 @@
       <span class="iconfont icon-search">&#xe650;</span>
       请输入你要搜索的内容
       </div>
-    <div class="header-right">
-      {{ this.city }}
-      <span class="iconfont icon-arraw">&#xe63f;</span>
+    <router-link to="/city">
+      <div class="header-right">
+        {{ this.city }}
+        <span class="iconfont icon-arraw">&#xe63f;</span>
       </div>
+    </router-link>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
   @import '~@/assets/styles/varibles.styl'
   .header
     display: flex
-    line-height: .86rem
+    line-height: $headerHeight
     background: $bgColor
     color: #fff
     .header-left
@@ -52,6 +54,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .icon-arraw
         font-size: .3rem
 </style>
