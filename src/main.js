@@ -6,6 +6,7 @@ import router from './router'
 import './assets/styles/iconfont.css'
 import './assets/styles/reset.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 import 'swiper/dist/css/swiper.css'
 
 // 解决移动端 1px border的显示问题
@@ -23,6 +24,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
