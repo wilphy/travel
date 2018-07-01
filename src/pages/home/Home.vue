@@ -34,11 +34,11 @@ export default {
     }
   },
   methods: {
-    getHomeIndo () {
+    getHomeInfo () {
       axios.get('/static/mock/home.json')
-        .then(this.getHomeIndoSucc)
+        .then(this.getHomeInfoSucc)
     },
-    getHomeIndoSucc (res) {
+    getHomeInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -48,11 +48,10 @@ export default {
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
-      console.log(res)
     }
   },
   mounted () {
-    this.getHomeIndo()
+    this.getHomeInfo()
   }
 }
 </script>

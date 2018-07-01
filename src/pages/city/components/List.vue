@@ -12,48 +12,17 @@
       <section class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">广州</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">上海</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">杭州</div>
+          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </section>
-      <section class="area">
-        <div class="title border-topbottom">A</div>
+      <section class="area" v-for="(item, key) of cities" :key="key">
+        <div class="title border-topbottom">{{ key }}</div>
         <ul class="item-list">
-          <li class="item border-bottom">鞍山</li>
-          <li class="item border-bottom">阿拉善盟</li>
-          <li class="item border-bottom">阿坝</li>
-          <li class="item border-bottom">阿克苏</li>
-        </ul>
-      </section>
-      <section class="area">
-        <div class="title border-topbottom">B</div>
-        <ul class="item-list">
-          <li class="item border-bottom">北京</li>
-          <li class="item border-bottom">蚌埠</li>
-          <li class="item border-bottom">博尔塔拉</li>
-          <li class="item border-bottom">保定</li>
-        </ul>
-      </section>
-      <section class="area">
-        <div class="title border-topbottom">C</div>
-        <ul class="item-list">
-          <li class="item border-bottom">北京</li>
-          <li class="item border-bottom">蚌埠</li>
-          <li class="item border-bottom">博尔塔拉</li>
-          <li class="item border-bottom">保定</li>
+          <li class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
+            {{ innerItem.name }}
+          </li>
         </ul>
       </section>
     </div>
@@ -64,6 +33,10 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Object,
+    hot: Array
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
   }
