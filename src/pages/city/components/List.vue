@@ -1,6 +1,7 @@
 <template>
   <div class="list" ref="wrapper">
     <div>
+
       <section class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
@@ -17,7 +18,11 @@
           </div>
         </div>
       </section>
-      <section class="area" v-for="(item, key) of cities" :key="key">
+      <section class="area"
+      v-for="(item, key) of cities"
+      :key="key"
+      :ref="key"
+      >
         <div class="title border-topbottom">{{ key }}</div>
         <ul class="item-list">
           <li class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
@@ -35,10 +40,19 @@ export default {
   name: 'CityList',
   props: {
     cities: Object,
-    hot: Array
+    hot: Array,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
