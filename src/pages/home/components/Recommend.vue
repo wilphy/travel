@@ -6,7 +6,7 @@
       tag="li"
       class="item border-bottom"
       v-for="item of list"
-      :key=item.id
+      :key="item.id"
       :to="'/detail/' + item.id"
       >
         <img class="item-img" :src="item.imgUrl" alt="">
